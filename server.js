@@ -1,13 +1,25 @@
-const {
-  ApolloServer,
-  gql
-} = require('apollo-server');
-
+const {ApolloServer, gql} = require('apollo-server');
 const mongoose = require("mongoose");
 
-require("dotenv").config({
-  path: "variables.env"
-});
+require("dotenv").config({path: "variables.env"});
+// import typeDefs.gql to be able to read it with filesystem
+const fs = require("fs");
+const path = require("path");
+
+// here we require our model structure
+const Drink = require("./models/Drink");
+const Food = require("./models/Food");
+const Order = require("./models/Order");
+const User = require("./models/User");
+const resolvers = require("./resolvers");
+
+// with path module we join directory name and archive
+const filePath = path.join(__dirname, 'typeDefs.gql');
+// Then we tell it to read it
+// Sync, because we only want to read it without promises and stuff
+const typeDefs = fs.readFileSync(filePath, "utf-8")
+// console.log(filePath);
+// console.log(typeDefs);
 
 // here we are connection the database URI with our app
 mongoose.connect(
@@ -15,74 +27,20 @@ mongoose.connect(
     { useNewUrlParser: true
     }
   )
-  .then(() => console.log("Connect with Database"))
+  .then(() => console.log("Connected with Database"))
   .catch((error) => console.log(error));
 
-const typeDefs = gql `
-type List {
-  fruit: String
-  color: String
-}
-type Query{
-  getList: [List]
-}
-type Mutation{
-  addList(fruit: String, color:String): List
-}
-`;
-// Put List in Array parenthesis of Array, because it's an array
-
-
-const resolvers = {
-  Query: {
-    getList: () => {
-      return list;
-    }
-  },
-  Mutation: {
-    addList: (_, args) => {
-      const newList = {
-        // fruit and color already is defined and args.fruit and 
-        // args.color are the values we are gonna receive
-        fruit: args.fruit,
-        color: args.color
-      }
-      //now we need to push the new stuff to the existing array and return it
-      list.push(newList);
-      return newList;
-    }
-  }
-}
-
-// To create server
-// If your variable had an other name, you would have to put typeDefs:othername
-// Here the server will read the definition of how
-// we want the data and call the data with resolvers
 const server = new ApolloServer({
   typeDefs,
-  resolvers
+  resolvers,
+  context: {
+    Drink,
+    Food,
+    Order,
+    User
+  }
 });
 
-// create fake data
-const list = [{
-    fruit: "banana",
-    color: "yellow"
-  },
-  {
-    fruit: "apple",
-    color: "red"
-  },
-  {
-    fruit: "kiwi",
-    color: "green"
-  },
-  {
-    fruit: "bluberry",
-    color: "blue"
-  },
-];
-
-// Here we rise the server
 server.listen().then(({
   url
 }) => {
