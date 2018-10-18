@@ -1,7 +1,12 @@
-const {ApolloServer, gql} = require('apollo-server');
+const {
+  ApolloServer,
+  gql
+} = require('apollo-server');
 const mongoose = require("mongoose");
 
-require("dotenv").config({path: "variables.env"});
+require("dotenv").config({
+  path: "variables.env"
+});
 // import typeDefs.gql to be able to read it with filesystem
 const fs = require("fs");
 const path = require("path");
@@ -23,8 +28,8 @@ const typeDefs = fs.readFileSync(filePath, "utf-8")
 
 // here we are connection the database URI with our app
 mongoose.connect(
-    process.env.MONGO_URI,
-    { useNewUrlParser: true
+    process.env.MONGO_URI, {
+      useNewUrlParser: true
     }
   )
   .then(() => console.log("Connected with Database"))
@@ -40,6 +45,8 @@ const server = new ApolloServer({
     User
   }
 });
+
+// { port: process.env.PORT || 4000 }
 
 server.listen().then(({
   url
