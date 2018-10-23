@@ -13,12 +13,10 @@ const FoodSchema = new mongoose.Schema({
     type: Boolean,
     required: true
   },
-  side:{
-    type: [String]
-  },
-  extra:{
-    type: [String]
-  }
+  content:{
+    type: [String],
+    required: true
+}
 })
 
 // Export it to make it global

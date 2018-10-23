@@ -1,3 +1,15 @@
+type Extra {
+  _id: ID
+  name: String!
+  price: Int!
+}
+
+type Side {
+  _id: ID
+  name: String!
+  price: Int!
+}
+
 type Food {
   # _id is the way to save an ID in GraphQL, ID is the "type"
   _id: ID
@@ -32,13 +44,26 @@ type User {
 
 type Query {
   getUser: User
+  getExtraList: [Extra]!
+  getSideList: [Side]!
   getDrinkList: [Drink]!
   getFoodList: [Food]!
   getOrderList: [Order]!
 }
 
 type Mutation {
-  addDrink(name: String!, price: Int!): Drink!
+  addDrink(
+    name: String!
+    price: Int!
+    ): Drink!
+  addExtra(
+    name: String!
+    price: Int!
+  ): Extra!
+  addSide(
+    name: String!
+    price: Int!
+  ): Side!
   addFood(
     name: String!
     price: Int!

@@ -1,6 +1,16 @@
 const mongoose = require("mongoose");
 
 const OrderSchema = new mongoose.Schema({
+  extra:{
+    type: [mongoose.Schema.Types.ObjectId],
+    required: true,
+    ref: "Extra"
+  },
+  side:{
+    type: [mongoose.Schema.Types.ObjectId],
+    required: true,
+    ref: "Side"
+  },
   food:{
     type: [mongoose.Schema.Types.ObjectId],
     required: true,
@@ -15,9 +25,11 @@ const OrderSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
+  table:{
+    type: Number
+  },
   client:{
-    type: String,
-    required: true,
+    type: String
   },
   employee:{
     type: mongoose.Schema.Types.ObjectId,

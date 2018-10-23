@@ -12,6 +12,8 @@ const fs = require("fs");
 const path = require("path");
 
 // here we require our model structure
+const Extra = require("./models/Extra");
+const Side = require("./models/Side");
 const Drink = require("./models/Drink");
 const Food = require("./models/Food");
 const Order = require("./models/Order");
@@ -39,6 +41,8 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: {
+    Extra,
+    Side,
     Drink,
     Food,
     Order,
@@ -48,7 +52,7 @@ const server = new ApolloServer({
 
 // { port: process.env.PORT || 4000 }
 
-server.listen().then(({
+server.listen(5000).then(({
   url
 }) => {
   console.log('IT WORKS', url);

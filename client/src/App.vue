@@ -13,7 +13,6 @@
           <v-icon class="hidden" left>{{item.icon}}</v-icon>
           {{item.title}}
         </v-btn>
-      
         </v-toolbar-items>
     </v-toolbar>
 
@@ -25,7 +24,7 @@
 </template>
 
 <script>
-export default {
+  export default {
   name: 'App',
   computed: {
     horizontalNavItem(){
@@ -40,5 +39,7 @@ export default {
 
 
 <style>
-
+html, body {
+  font-family: 'Ubuntu', sans-serif;
+}
 </style>

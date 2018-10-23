@@ -3,13 +3,14 @@ import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 
 Vue.use(Vuetify, {
+  iconfont: 'md',
   theme: {
     primary: "#607D8B",
     secondary: "#9E9E9E",
-    accent: "#FFEA00",
-    error: "#E53935",
-    warning: "#FF8F00",
-    info: "#4DB6AC",
+    accent: "#EF9A9A",
+    error: "#f44336",
+    warning: "#FDD835",
+    info: "#26A69A",
     success: "#AEEA00"
   }
 })
