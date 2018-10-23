@@ -2,14 +2,16 @@ module.exports = {
   Query: {
     getUser: () => null,
     getSideList: async (_, args, { Side }) => {
-      const side = await Side.find({}).sort({
+      const sides = await Side.find({}).sort({
         name: "desc"
       });
+      return sides;
     },
     getExtraList: async (_, args, { Extra }) => {
-      const extra = await Extra.find({}).sort({
+      const extras = await Extra.find({}).sort({
         name: "desc"
       });
+      return extras;
     },
     getDrinkList: async (_, args, { Drink }) => {
         const drinks = await Drink.find({}).sort({
@@ -54,46 +56,24 @@ module.exports = {
       return newExtra;
     },
     addDrink: async (_, { name, price }, { Drink }) => {
-          const drink = await Drink.findOne({ name });
-          if (drink) {
-            throw new Error("Drink already exists");
-          }
-          const newDrink = await new Drink({ name, price }).save();
-          return newDrink;
+      const drink = await Drink.findOne({ name });
+      if (drink) {
+        throw new Error("Drink already exists");
+      }
+      const newDrink = await new Drink({ name, price }).save();
+      return newDrink;
     },
     addFood: async (_, { name, price, shift, content }, { Food }) => {
-          const food = await Food.findOne({ name });
-          if (food) {
-            throw new Error("Food already exists");
-          }
-          const newFood = await new Food({ name, price, shift, content }).save();
-          return newFood;
+      const food = await Food.findOne({ name });
+      if (food) {
+        throw new Error("Food already exists");
+      }
+      const newFood = await new Food({ name, price, shift, content }).save();
+      return newFood;
     },
-          addOrder: async (
-            _, {
-              extra,
-              side,
-              food,
-              drink,
-              total,
-              table,
-              client,
-              employee
-            }, {
-              Order
-            }
-          ) => {
-            const newOrder = await new Order({
-              extra,
-              side,
-              food,
-              drink,
-              total,
-              table,
-              client,
-              employee
-            }).save();
+    addOrder: async ( _, { extra, side, food, drink, total, table, client, employee }, { Order }) => {
+      const newOrder = await new Order({ extra, side, food, drink, total, table, client, employee }).save();
             return newOrder;
-          }
+    }
   }
 };

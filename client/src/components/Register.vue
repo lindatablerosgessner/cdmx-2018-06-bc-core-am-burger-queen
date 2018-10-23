@@ -1,6 +1,6 @@
 <template>
-  <div class="home">
-    <h1>LOGIN-HOME</h1>
+  <div class="register">
+    <h1>REGISTER</h1>
   </div>
 </template>
 
@@ -8,6 +8,6 @@
 
 
 export default {
-  name: 'Home'
-};
+  name: 'Register'
+}
 </script>

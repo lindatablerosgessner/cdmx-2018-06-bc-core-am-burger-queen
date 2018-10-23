@@ -1,6 +1,9 @@
 <template>
-  <div id="app">
-    <v-toolbar fixed-color="primary" dark>
+   <v-app id="app" class="application theme--dark">
+    <!-- <div class="application--wrap"> -->
+    <!-- <nav class="v-toolbar v-toolbar--absolute v-toolbar--clipped theme--dark" data-booted="true" style="margin-top: 0px; padding-right: 0px; padding-left: 0px; transform: translateY(0px);"><div class="v-toolbar__content" style="height: 64px;">BLABLABLA<div class="v-toolbar__title">Vuetify</div></div></nav> -->
+
+    <v-toolbar fixed-color="primary" dark style="height: 64px;">
       <v-toolbar-title>
         <router-link to="/" tag="span" style="cursor:pointer">
         Easy Burger Queen
@@ -18,9 +21,13 @@
 
     <!-- APP CONTENT STARTS HERE -->
     <main>
+      <aside>
+      </aside>
     <router-view/>
     </main>
-  </div>
+    <footer class="v-footer v-footer--fixed theme--dark" style="height: 32px;"><span class="px-3">© Linda Tableros 2018</span></footer>
+    <!-- </div> -->
+  </v-app>
 </template>
 
 <script>

@@ -31,8 +31,11 @@ type Order {
   _id: ID
   food: [Food]!
   drink: [Drink]!
+  extra: [Extra]
+  side: [Side]
   total: Int!
-  client: String!
+  table: Int
+  client: String
   employee: User!
 }
 
@@ -68,14 +71,15 @@ type Mutation {
     name: String!
     price: Int!
     shift: Boolean!
-    extra: [String]
-    side: [String]
   ): Food!
   addOrder(
     food: ID!
     drink: ID!
+    extra: [ID]
+    side: [ID]
     total: Int!
-    client: String!
+    table: Int
+    client: String
     employee: ID!
   ): Order!
   signupUser(username: String!, password: String!): User!
