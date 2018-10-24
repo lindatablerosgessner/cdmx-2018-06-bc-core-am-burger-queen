@@ -17,8 +17,6 @@ type Food {
   # the ! means IT IS REQUIRED IN THE MODEL(required: true)
   price: Int!
   shift:Boolean!
-  extra:[String]
-  side:[String]
 }
 
 type Drink {
@@ -43,6 +41,10 @@ type User {
   _id: ID
   username: String! @unique
   password: String!
+}
+
+type Token {
+  token: String!
 }
 
 type Query {
@@ -82,5 +84,13 @@ type Mutation {
     client: String
     employee: ID!
   ): Order!
-  signupUser(username: String!, password: String!): User!
+  signupUser(
+    username: String!
+    password: String!
+  ): Token
+  # cambiar User por Token
+  signInUser(
+    username: String!
+    password: String!
+  ): Token
 }

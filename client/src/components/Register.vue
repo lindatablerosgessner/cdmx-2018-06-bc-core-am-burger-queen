@@ -11,8 +11,10 @@
               </v-toolbar>
               <v-card-text>
                 <v-form>
-                  <v-text-field prepend-icon="person" name="user" label="User" type="text"></v-text-field>
-                  <v-text-field prepend-icon="lock" name="password" label="Password" id="password" type="password"></v-text-field>
+                  <v-text-field prepend-icon="person" name="user" label="New User" type="text"></v-text-field>
+                  <v-text-field prepend-icon="lock" name="new-password" label="New Password" id="new-password" type="password"></v-text-field>
+                  <v-spacer></v-spacer>
+                  <v-text-field prepend-icon="supervisor_account" name="admin-password" label="Admin Password" id="admin-password" type="password"></v-text-field>
                 </v-form>
               </v-card-text>
               <v-card-actions>

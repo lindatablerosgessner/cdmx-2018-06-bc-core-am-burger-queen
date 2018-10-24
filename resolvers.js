@@ -1,3 +1,13 @@
+const bcrypt = require("bcrypt");
+// este encripta la contraseña
+const jwt = require("jsonwebtoken");
+// crea un token para guardar la sesión
+
+const createToken = (user, secret, expiresIn) => {
+  const { username, password } = user; 
+  return jwt.sign({ username, password }, secret, { expiresIn });
+};
+
 module.exports = {
   Query: {
     getUser: () => null,
@@ -32,12 +42,26 @@ module.exports = {
     },
   Mutation: {
     signupUser: async (_, { username, password }, { User }) => {
+      // Aca se verifica si ya existe un usuario con este nombre
         const user = await User.findOne({ username });
         if (user) {
           throw new Error("User already exists");
         }
+        //  Crea un nuevo usuario y le pasa los valores de los argumentpoa recibidos
         const newUser = await new User({ username, password }).save();
-        return newUser;
+        return { token: createToken(newUser, process.env.SECRET, "8hr") };
+    },
+    signInUser: async (_, { username, password }, { User }) => {
+        const user = await User.findOne({ username });
+        if (!user) {
+          throw new Error("User not found");
+        }
+        // Aca compara la contraseña ingresada con la almacenada en la base
+        const isValidPassword = await bcrypt.compare(password, user.password);
+        if (!isValidPassword) {
+          throw new Error("Invalid Password");
+        }
+        return { token: createToken(user, process.env.SECRET, "8hr") };
     },
     addSide: async(_, { name, price }, { Side }) => {
       const side = await Side.findOne({ name });
