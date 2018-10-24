@@ -36,8 +36,8 @@
   computed: {
     horizontalNavItem(){
       return [
-        {icon: "create", title: "Registrar", link: "/signup"},
-        {icon: "lock_open", title: "Iniciar sesión", link: "/signin"}
+        {icon: "create", title: "User Registration", link: "/register"},
+        {icon: "lock_open", title: "Log in", link: "/home"}
       ];
     }
   }

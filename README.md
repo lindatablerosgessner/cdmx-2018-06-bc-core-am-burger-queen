@@ -1,12 +1,12 @@
 # Burger Queen
 
-## Preámbulo
+## Preface
 
 Nos acaban de enviar un correo con una solicitud para un nuevo proyecto. Hay un
 restaurante que nos ha contactado porque quieren que alguien les construya una
 interfaz donde puedan tomar pedidos usando una tablet.
 
-![burger-queen](https://user-images.githubusercontent.com/110297/42118136-996b4a52-7bc6-11e8-8a03-ada078754715.jpg)
+<!-- ![burger-queen]() -->
 
 Como punto de partida,
 nos comparten el siguiente correo recibido del cliente:
@@ -28,47 +28,13 @@ nos comparten el siguiente correo recibido del cliente:
 >
 > Y un menú para el resto del dia:
 >
-> <table width="100%">
->   <tbody>
->     <tr>
->       <td colspan="2" rowspan="1">Hamburguesas</td>
->       <td>Acompañamientos ($5)</td>
->       <td colspan="3" rowspan="1">Bebidas</td>
->     </tr>
->     <tr>
->       <td>Simple</td>
->       <td>10</td>
->       <td>Papas fritas</td>
->       <td></td>
->       <td>500ml</td>
->       <td>750ml</td>
->     </tr>
->     <tr>
->       <td>Doble</td>
->       <td>15</td>
->       <td>Onion Rings</td>
->       <td>Agua</td>
->       <td>5</td>
->       <td>8</td>
->     </tr>
->     <tr>
->       <td></td>
->       <td></td>
->       <td></td>
->       <td>refresco</td>
->       <td>7</td>
->       <td>10</td>
->     </tr>
->   </tbody>
-> </table>
->
 > Los clientes pueden escoger entre hamburguesas de res, de pollo, o vegetariana.
 > **Y por $1 pueden agregarle queso o huevo.**
 >
 > Nuestros clientes son bastante indecisos, por lo que es muy común que cambien el
 > pedido varias veces antes de finalizarlo.
 
-## Introducción
+## Introduction
 
 Partiendo de los requerimientos de negocio detallados en el correo del cliente,
 nos piden construir **una interfaz que permita a lxs cajerxs tomar los pedidos
@@ -85,7 +51,7 @@ agregar y la interfaz debe ir mostrando el _resumen del pedido_ con el total.
 
 ![out](https://user-images.githubusercontent.com/110297/45984241-b8b51c00-c025-11e8-8fa4-a390016bee9d.gif)
 
-## Objetivos
+## Objetive
 
 El objetivo principal de aprendizaje de este proyecto es construir una
 _interfaz web_ usando el _framework_ elegido (React, Vue o Angular). Todos estos
@@ -106,58 +72,15 @@ proyecto.
 Finalmente, la interfaz debe estar diseñada específicamente para correr en
 **tablets**.
 
-Tópicos: _react_, _angular_, _vue_, _pwa_, _offline-first_, _service-worker_.
-
-## Consideraciones generales
-
-Este proyecto se debe "resolver" de forma individual.
-
-La lógica del proyecto debe estar implementada completamente en JavaScript
+JavaScript
 (ES6+), HTML y CSS y empaquetada de manera automatizada.
-En este proyecto SI está permitido usar librerías o frameworks
-(debes elegir entre [React](https://reactjs.org/), [Vue](https://vuejs.org/) o
-[Angular](https://angular.io/)).
+[Vue](https://vuejs.org/)
 
 La aplicación debe ser un _Single Page App_. Los pedidos los tomaremos desde una
 _tablet_, pero **no queremos una app nativa**, sino una web app que sea
 **responsive** y pueda funcionar **offline**. También necesitamos botones
 grandes para escoger los productos, y el estado actual del pedido siempre
 visible para poder confirmar con el cliente.
-
-La aplicación desplegada debe tener 80% o más el las puntuaciones de
-Performance, Progressive Web App, Accessibility y Best Practices de Lighthouse.
-
-La aplicación debe hacer uso de `npm-scripts` y contar con scripts `start`,
-`test`, `build` y `deploy`, que se encarguen de arrancar, correr las pruebas,
-empaquetar y desplegar la aplicación respectivamente.
-
-Los tests unitarios deben cubrir un mínimo del 70% de _statements_, _functions_,
-_lines_ y _branches_.
-
-Este proyecto incluye un _boilerplate_ con el código necesario para arrancar con
-la parte de backend ya resuelta. El _boilerplate_ incluye los siguientes
-archivos/carpetas con la configuración de Fierbase (hosting, firestore y
-functions):
-
-```text
-./04-burger-queen/
-├── firebase.json
-├── firestore.indexes.json
-├── firestore.rules
-├── functions
-│   ├── index.js
-│   ├── package.json
-└── README.md
-
-```
-
-Por otro lado, la parte de la interfaz no está incluida, por lo cual, deberás de
-definir la estructura de carpetas y archivos que consideres necesaria, puedes
-guiarte de las convenciones del framework elegido. Por ende, los tests y el
-setup necesario para ejecutarlos serán realizados por ti.
-
-Para comenzar este proyecto tendrás que hacer un _fork_ y _clonar_ este
-repositorio.
 
 ## Parte obligatoria
 
@@ -188,36 +111,6 @@ tipo _story board_, info de despliegue e instrucciones para developers
 
 * Inicio de sesión
 * Restaurar contraseña
-
-### UX
-
-* Debe **verse bien y funcionar bien en tablets**.
-* **No queremos una app nativa**, sino una web app que se pueda _agregar a la
-  pantalla de inicio_ como PWA.
-* Queremos botones grandes para fácil uso en pantallas táctiles (touch screens).
-* Queremos el estado actual del pedido siempre visible mientras tomamos un
-  pedido.
-* Queremos que sea accesible y que funcione bien en tablets iOS y Android.
-
-## Hacker edition
-
-Una vez que tengamos el sistema básico implementado, nos gustaría explorar
-nuevas posibilidades, y estamos abiertos a cualquier sugerencia que tengan.
-Algunas de las ideas que nos ha sugerido nuestros clientes son:
-
-* agregar combos al menú
-* cupones de descuento
-* programa de fidelidad, etc.
-* agregar _mesas_, de forma que los pedidos se puedan tomar en mesa en vez de
-  dando el nombre del cliente al cajero.
-* crear/editar/borrar usuarios
-* ver estadísticas de pedidos
-
-## Entregables
-
-El proyecto será _entregado_ subiendo tu código a GitHub (`commit`/`push`) y la
-interfaz será desplegada usando GitHub pages u otro servicio de hosting que
-puedas haber encontrado en el camino.
 
 ## Evaluación
 
@@ -261,21 +154,19 @@ puedas haber encontrado en el camino.
 | Color | 3
 | Tipografía | 3
 
-### Habilidades Blandas
+* Debe **verse bien y funcionar bien en tablets**.
+* **No queremos una app nativa**, sino una web app que se pueda _agregar a la
+  pantalla de inicio_ como PWA.
+* Queremos botones grandes para fácil uso en pantallas táctiles (touch screens).
+* Queremos el estado actual del pedido siempre visible mientras tomamos un
+  pedido.
+* Queremos que sea accesible y que funcione bien en tablets iOS y Android.
 
-Para este proyecto esperamos que ya hayas alcanzado el nivel 4 en todas tus
-habilidades blandas. Te aconsejamos revisar la rúbrica:
+## Entregables
 
-| Habilidad | Nivel esperado |
-|-----------|----------------|
-| Planificación y organización | 4
-| Autoaprendizaje | 4
-| Solución de Problemas | 4
-| Dar y recibir feedback | 4
-| Adaptabilidad | 4
-| Trabajo en equipo (trabajo colaborativo y responsabilidad) | n/a
-| Comunicación eficaz | 4
-| Presentaciones | 4
+El proyecto será _entregado_ subiendo tu código a GitHub (`commit`/`push`) y la
+interfaz será desplegada usando GitHub pages u otro servicio de hosting que
+puedas haber encontrado en el camino.
 
 ## Primeros pasos
 
@@ -294,83 +185,11 @@ habilidades blandas. Te aconsejamos revisar la rúbrica:
    git checkout -b develop
    ```
 
-4. Crear proyecto en [Firebase](https://firebase.google.com/)
-
-5. Habilitar Firestore (_comenzar en modo bloqueado_) en sección de "Bases de
-   Datos" de [Firebase console](https://console.firebase.google.com/).
-
-6. Instalar utilidad de línea de comando de Firebase:
-
-   ```sh
-   npm i -g firebase-tools
-   ```
-
-7. Agregamos entorno de producción para desplegar:
-
-   ```sh
-   firebase use --add
-   ```
-
-8. Instalar dependencias de cloud functions:
-
-   ```sh
-   # usando yarn
-   cd functions && yarn && cd ..
-   # alternativamente, usando npm
-   cd functions && npm install && cd ..
-   ```
-
-9. Desplegar:
-
-   ```sh
-   firebase deploy
-   ```
-
-10. Llegado a este punto ya puedes comenzar con el _front-end_ :wink:
-
-***
-
-Nota para estudiantes que elijan React y quieran usar `create-react-app`:
-
-Si tratas de usar `create-react-app` en el directorio del proyecto recibirás un
-error diciendo que hay archivos que podrían presentar un conflicto. Para evitar
-este problema puedes crear una nueva app usando `create-react-app` y de ahí
-_mezclarla_ con la carpeta del proyecto:
-
-```sh
-# si estabase en la carpeta del proyecto, salimos a la carpeta de más arriba
-cd ..
-
-create-react-app burger-queen-tmp
-cp -r burger-queen/* burger-queen-tmp/
-cp -r burger-queen-tmp/.gitignore burger-queen-tmp/* burger-queen/
-rm -rf burger-queen-tmp
-cd burger-queen
-```
-
-***
-
-## Pistas / Tips
-
 ### Frameworks / libraries
 
-* [React](https://reactjs.org/)
 * [Vue](https://vuejs.org/)
-* [Angular](https://angular.io/)
 
 ### Herramientas
-
-* [npm-scripts](https://docs.npmjs.com/misc/scripts)
-* [Babel](https://babeljs.io/)
-* [webpack](https://webpack.js.org/)
-
-### PWA
-
-* [Tu primera Progressive Web App - Google developers](https://developers.google.com/web/fundamentals/codelabs/your-first-pwapp/?hl=es)
-* [Progressive Web Apps - codigofacilito.com](https://codigofacilito.com/articulos/progressive-apps)
-* [offlinefirst.org](http://offlinefirst.org/)
-* [Usando Service Workers - MDN](https://developer.mozilla.org/es/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-* [Cómo habilitar datos sin conexión - Firebase Docs](https://firebase.google.com/docs/firestore/manage-data/enable-offline?hl=es-419)
 
 ### Serverless
 
@@ -379,9 +198,104 @@ cd burger-queen
 * [Firebase](https://firebase.google.com/)
 * [Serverless Architectures - Martin Fowler](https://www.martinfowler.com/articles/serverless.html)
 
-### Cloud functions
+## Mockups
 
-* [Cloud functions - Firebase Docs](https://firebase.google.com/docs/functions/?hl=es-419)
+![mockup 1](src/assets/mockup1.png)
+![mockup 2](src/assets/mockup2.jpeg)
+
+## Build Setup
+
+``` bash
+# install dependencies
+npm install
+
+# serve with hot reload at localhost:8080
+npm run dev
+
+# build for production with minification
+npm run build
+
+# build for production and view the bundle analyzer report
+npm run build --report
+
+# run unit tests
+npm run unit
+
+# run e2e tests
+npm run e2e
+
+# run all tests
+npm test
+```
+
+For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+## Tech/framework used
+
+Built with:
+
+* JS
+* HTML
+* CSS
+* Node.js
+* Vue.js
+* Visual Code Studio
+
+## Table of Contents
+
+```text
+./
+├── .babelrc
+├── .editorconfig
+├── .eslintignore
+├── .eslintrc.js
+├── .gitignore
+├── index.html
+├── package-lock.json
+├── package.json
+├── README.md
+├── build
+│   └── *
+├── config
+│   └── *
+├── dist
+│   ├── static
+│   │   └── *
+│   └── index.html
+├── node_modules
+│   └── *
+├── src
+│   ├── assets
+│   │   └── logo.jpg
+│   ├── components
+│   │   ├── Login.vue
+│   │   ├── *
+│   │   └── *
+│   ├── router
+│   │   └── index.js
+│   ├── App.vue
+│   └── main.js
+├── static
+│   └── .gitkeep
+└── test
+    ├── e2e
+    │   └── *
+    └── unit
+        └── *
+
+```
+
+## Tests
+
+* Jest
+
+## Build status
+
+Under construction.
+
+## Contribute
+
+Please send a pull request if you would like to contribute.
 
 ## Checklist
 
