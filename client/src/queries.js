@@ -12,3 +12,13 @@ mutation($username: String!, $password: String!){
 }
 `;
 // con$ declaras y sin $ asignas
+
+export const GET_FOOD_LIST = gql`
+query{
+  getFoodList{
+    _idname
+    price
+    shift
+  }
+}
+`;

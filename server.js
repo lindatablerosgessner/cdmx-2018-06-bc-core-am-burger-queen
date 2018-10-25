@@ -40,7 +40,8 @@ mongoose.connect(
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  context: {
+  context: ({ req }) => {
+    console.log(req.headers["authorization"]);
     Extra,
     Side,
     Drink,

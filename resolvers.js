@@ -11,6 +11,7 @@ const createToken = (user, secret, expiresIn) => {
 module.exports = {
   Query: {
     getUser: () => null,
+    getCurrentUser: async (_, args, { User }) => {},
     getSideList: async (_, args, { Side }) => {
       const sides = await Side.find({}).sort({
         name: "desc"
@@ -95,9 +96,10 @@ module.exports = {
       const newFood = await new Food({ name, price, shift, content }).save();
       return newFood;
     },
-    addOrder: async ( _, { extra, side, food, drink, total, table, client, employee }, { Order }) => {
-      const newOrder = await new Order({ extra, side, food, drink, total, table, client, employee }).save();
+    addOrder: async ( _, { extra, side, food, drink, total, table, client }, { Order }) => {  // , employee 
+      const newOrder = await new Order({ extra, side, food, drink, total, table, client }).save();  // , employee
             return newOrder;
     }
   }
 };
+
