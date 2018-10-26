@@ -1,0 +1,17 @@
+{
+  "name": "easy-burger-queen",
+  "type": "static",
+  "static": {
+    "public": "dist",
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  "alias": "easy-burger-queen",
+  "files": [
+    "dist"
+  ]
+}

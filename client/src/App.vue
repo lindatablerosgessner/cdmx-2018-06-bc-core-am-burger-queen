@@ -6,7 +6,7 @@
       <img :src="require('./assets/img/BurgerQueen6.png')" left id="logo" class="mb-2"/>
       <v-toolbar-title class="mt-2">
         <router-link to="/" tag="span" style="cursor:pointer" class="headline font-weight-black">
-        Easy Burger Queen
+        Burger Queen
         </router-link>
         </v-toolbar-title>
         <v-spacer></v-spacer>
@@ -70,7 +70,7 @@ html, body {
 i {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
-  speak: none;
+  /* speak: none; */
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
