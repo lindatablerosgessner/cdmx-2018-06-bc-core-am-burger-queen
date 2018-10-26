@@ -15,7 +15,7 @@ module.exports = {
     getSideList: async (_, args, { Side }) => {
       const sides = await Side.find({}).sort({
         name: "desc"
-      });
+      }); 
       return sides;
     },
     getExtraList: async (_, args, { Extra }) => {
@@ -69,15 +69,15 @@ module.exports = {
       if (side) {
         throw new Error("Side already exists")
       }
-      const newSide = await new Side({ name, price}).save();
+      const newSide = await new Side({ name, price }).save();
       return newSide;
     },
     addExtra: async(_, { name, price }, { Extra }) => {
       const extra = await Extra.findOne({ name });
       if (extra) {
-        throw new Error("Extra already exists")
+        throw new Error("Extra already exists");
       }
-      const newExtra = await new Extra({ name, price}).save();
+      const newExtra = await new Extra({ name, price }).save();
       return newExtra;
     },
     addDrink: async (_, { name, price }, { Drink }) => {

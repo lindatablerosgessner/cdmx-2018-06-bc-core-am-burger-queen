@@ -1,18 +1,22 @@
 <template> 
   <v-container id="orders" class="fluid">
     <!-- <v-navigation-drawer class="v-navigation-drawer--absolute v-navigation-drawer--clipped v-navigation-drawer--open theme--dark grey lighten-4" overflow="" data-booted="true" style="height: 100%; margin-top: 64px; max-height: calc(100% - 96px); transform: translateX(0px); width: 300px;" permanent right><div class="v-navigation-drawer__border"></div></v-navigation-drawer> -->
-      <div class="text-xs-center">
-        <v-btn color="info" round dark class="big-btn iconbtn display-1" v-for="item in hugeButtons" :key="item.title" :to="item.link">
-          <v-icon class="hidden" left>{{item.icon}}</v-icon>
+      <div class="text-xs-center mt-3 mb-1">
+        <v-btn color="info" round dark class="big-btn iconbtn display-1" v-for="item in hugeButtons1" :key="item.title" :to="item.link">
+          <v-icon class="hidden" left style="font-size:40px;">{{item.icon}}</v-icon>
           {{item.title}}
         </v-btn>
         <!-- <v-btn color="info" round dark class="big-btn display-1">Tables</v-btn>
         <v-btn color="info" round dark class="big-btn display-1">Take-away</v-btn> -->
       </div>
-      <div class="text-xs-center">
-        <v-btn color="accent" round dark class="big-btn iconbtn display-1">Breakfast</v-btn>
+      <div class="text-xs-center mb-4 mt-3">
+        <!-- <v-btn color="accent" round dark class="big-btn iconbtn display-1">Breakfast</v-btn>
         <v-btn color="accent" round dark class="big-btn iconbtn display-1">Meal</v-btn>
-        <v-btn color="accent" round dark class="big-btn display-1">Drinks</v-btn>
+        <v-btn color="accent" round dark class="big-btn display-1">Drinks</v-btn> -->
+        <v-btn color="accent" round dark class="big-btn iconbtn display-1" v-for="item in hugeButtons2" :key="item.title" :to="item.link">
+          <v-icon class="hidden" left style="font-size:40px;">{{item.icon}}</v-icon>
+          {{item.title}}
+        </v-btn>
       </div>
 
     <v-layout>
@@ -24,14 +28,14 @@
           </v-card-title>
           <v-card-actions>
             <div v-for="drink in getDrinkList" :key="drink._id">
-              <v-btn class="big-btn title" color="warning" style="color: black;" round dark>
+              <v-btn class="title" color="warning" style="color: black;" round dark>
                 {{drink.name}}
                 <br>
                 ${{drink.price}}
               </v-btn>
             </div>
             <v-btn fab dark large color="purple">
-            <v-icon dark>add</v-icon>
+            <v-icon class="icon-plus"></v-icon>
             </v-btn>
           </v-card-actions>
         </v-card>
@@ -46,10 +50,17 @@ import { gql } from "apollo-boost";
 export default {
   name: "Orders",
   computed: {
-    hugeButtons(){
+    hugeButtons1(){
       return [
-        {icon: "", title: "Tables"},
-        {icon: "", title: "Take-Away"}
+        {icon: "icon-wheel-1", title: "Tables"},
+        {icon: "icon-take-away", title: "Take-Away"}
+      ];
+    },
+    hugeButtons2(){
+      return [
+        {icon: "icon-croissant", title: "Breakfast"},
+        {icon: "icon-hamburger-meal", title: "Meal"},
+        {icon: "icon-juice", title: "Drinks"}
       ];
     }
   },
@@ -71,17 +82,13 @@ export default {
 
 <style>
 .big-btn {
-  height: 90px;
+  height: 85px;
   padding: 2%;
-  margin-left: 2%;
-  margin-bottom: 2%;
-  /*  */
   position: relative;
   overflow: hidden;
   display: inline-block;
 
-  margin: 25px 0 25px 25px;
-  border-radius: 5px;
+  border-radius: 30px;
   color: #fff;
   text-decoration: none;
   text-align: center;
@@ -90,13 +97,7 @@ export default {
   font-family: sans-serif; */
 }
 
-.iconbtn:nth-child(1) { background: cornflowerblue; }
-.iconbtn:nth-child(2) { background: salmon; }
-.iconbtn:nth-child(3) { background: gray; }
-
-/**
- * The "shine" element
- */
+/* The "shine" element */
 
 .big-btn:after {
   content: "";

@@ -29,14 +29,15 @@ const OrderSchema = new mongoose.Schema({
     type: Number
   },
   client:{
-    type: String
+    type: String,
+    required: true
   },
   employee:{
     type: mongoose.Schema.Types.ObjectId,
     required: true,
     ref: "User"
   }
-})
+});
 
 // Export it to make it global
 module.exports = mongoose.model("Order", OrderSchema);

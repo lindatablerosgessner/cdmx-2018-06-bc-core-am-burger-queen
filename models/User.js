@@ -3,13 +3,13 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 
 const UserSchema = new mongoose.Schema({
-  username:{
+  username: {
     type: String,
     required: true,
     unique: true,
     trim: true
   },
-  password:{
+  password: {
     type: String,
     required: true,
     trim: true
@@ -32,7 +32,7 @@ UserSchema.pre("save", function(next){
     next();
     });
   });
-})
+});
 
 // Export it to make it global
 module.exports = mongoose.model("User", UserSchema);
